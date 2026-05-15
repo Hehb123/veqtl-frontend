@@ -1,0 +1,319 @@
+:root {
+  --app-bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-soft: #f9fbfd;
+  --text: #4b5563;
+  --text-strong: #111827;
+  --muted: #7b8794;
+  --border: #e5e9f0;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-soft: #e8f0ff;
+  --success: #0f9f6e;
+  --warning: #c27803;
+  --danger: #dc2626;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --radius: 8px;
+  font-family:
+    "Helvetica Neue", Arial, "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    "Noto Sans", sans-serif;
+  color: var(--text);
+  background: var(--app-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  min-width: 320px;
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(37, 99, 235, 0.06), rgba(246, 248, 251, 0) 280px),
+    var(--app-bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-strong);
+  letter-spacing: 0;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(calc(100% - 48px), 1400px);
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.page-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #ffffff 0%, #eef6ff 100%);
+  box-shadow: var(--shadow-sm);
+}
+
+.tool-hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 22px;
+  padding: 44px 34px 40px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 50% 18%, rgba(37, 99, 235, 0.13), transparent 36%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  text-align: center;
+}
+
+.tool-hero h1 {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-strong);
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1;
+}
+
+.tool-hero p {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
+}
+
+.page-subtitle {
+  max-width: 740px;
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.section-title {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.card-title {
+  color: var(--text-strong);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.stat-card {
+  min-height: 106px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-value {
+  color: var(--text-strong);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.el-card {
+  max-width: 100%;
+  border-color: var(--border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-sm) !important;
+  overflow: hidden;
+}
+
+.el-card__header {
+  padding: 16px 18px !important;
+  border-bottom-color: var(--border) !important;
+  background: var(--surface-soft);
+}
+
+.el-card__body {
+  padding: 18px !important;
+}
+
+.el-table {
+  max-width: 100%;
+  --el-table-header-bg-color: #f8fafc;
+  --el-table-header-text-color: var(--text-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  font-weight: 700;
+}
+
+.el-tabs__item {
+  font-weight: 600;
+}
+
+.el-button {
+  border-radius: 6px;
+}
+
+.el-input__wrapper,
+.el-select__wrapper {
+  border-radius: 6px !important;
+}
+
+.el-dialog {
+  border-radius: var(--radius) !important;
+}
+
+.query-container .el-card,
+.trait-smr-container .el-card,
+.download-container .el-card,
+.docs-container .docs-section,
+.tissue-detail-container .el-card,
+.gene-detail-container .el-card {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.query-container .el-card,
+.trait-smr-container .el-card,
+.download-container .el-card,
+.tissue-detail-container .el-card,
+.gene-detail-container .el-card {
+  border-top: 1px solid var(--border) !important;
+}
+
+.query-container .el-card__header,
+.trait-smr-container .el-card__header,
+.download-container .el-card__header,
+.tissue-detail-container .el-card__header,
+.gene-detail-container .el-card__header {
+  padding: 20px 0 14px !important;
+  border-bottom: 0 !important;
+  background: transparent !important;
+}
+
+.query-container .el-card__body,
+.trait-smr-container .el-card__body,
+.download-container .el-card__body,
+.tissue-detail-container .el-card__body,
+.gene-detail-container .el-card__body {
+  padding: 18px 0 28px !important;
+}
+
+.query-container .search-card,
+.trait-smr-container .filter-panel {
+  border: 1px solid #dce6f3 !important;
+  border-radius: var(--radius) !important;
+  background:
+    radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.06), transparent 28%),
+    #fff !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+  .page-shell {
+    width: min(calc(100% - 32px), 1400px);
+    padding: 16px 0;
+  }
+
+  .page-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 22px;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(calc(100% - 24px), 1400px);
+    padding: 12px 0;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .el-card__body {
+    padding: 14px !important;
+  }
+}
