@@ -50,10 +50,18 @@ The dev server usually runs at:
 http://localhost:5173
 ```
 
-By default, the frontend calls the API at:
+During local development, Vite proxies `/api` requests to:
 
 ```txt
-http://<current-hostname>:8000/api
+http://localhost:8000
+```
+
+This proxy is configured in `vite.config.js`.
+
+By default, the frontend calls the API at the same origin:
+
+```txt
+/api
 ```
 
 This behavior is defined in:
@@ -109,7 +117,7 @@ For same-domain deployment behind Nginx, consider setting:
 VITE_API_BASE_URL=/api
 ```
 
-or changing the fallback in `src/api.js` to `/api`.
+This is already the default fallback in `src/api.js`.
 
 ## Main Pages
 
