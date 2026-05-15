@@ -71,15 +71,26 @@ export default {
 
       return {
         color: ['#D96245'],
+        animation: false,
         grid: {
-          top: 28,
-          right: 24,
-          bottom: 46,
-          left: 64
+          top: 30,
+          right: 28,
+          bottom: 72,
+          left: 70,
+          containLabel: true
         },
         tooltip: {
           trigger: 'item',
-          borderColor: '#d9a08f',
+          confine: true,
+          backgroundColor: 'rgba(255, 255, 255, 0.96)',
+          borderColor: 'rgba(217, 98, 69, 0.35)',
+          borderWidth: 1,
+          textStyle: {
+            color: '#374151',
+            fontSize: 12,
+            lineHeight: 18
+          },
+          extraCssText: 'box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12); border-radius: 6px;',
           formatter: (params) => {
             if (params.seriesType === 'boxplot') {
               const values = params.data || []
@@ -105,19 +116,54 @@ export default {
           data: categories,
           name: dosageLabel,
           nameLocation: 'middle',
-          nameGap: 34,
-          axisTick: { alignWithLabel: true },
+          nameGap: 56,
+          axisLine: {
+            onZero: false,
+            lineStyle: {
+              color: '#9ca3af'
+            }
+          },
+          axisTick: {
+            alignWithLabel: true,
+            lineStyle: {
+              color: '#9ca3af'
+            }
+          },
           axisLabel: {
-            formatter: (value) => `${value}\nn=${counts[value] || 0}`,
-            color: '#4b5563',
-            fontSize: 12
+            formatter: (value) => `{dose|${value}}\n{count|n = ${counts[value] || 0}}`,
+            rich: {
+              dose: {
+                color: '#374151',
+                fontSize: 12,
+                lineHeight: 16
+              },
+              count: {
+                color: '#6b7280',
+                fontSize: 12,
+                lineHeight: 18
+              }
+            }
           }
         },
         yAxis: {
           type: 'value',
-          name: 'Expression',
+          name: 'Normalized expression',
           nameLocation: 'middle',
-          nameGap: 46,
+          nameGap: 52,
+          scale: true,
+          splitNumber: 6,
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: '#9ca3af'
+            }
+          },
+          axisTick: {
+            show: true,
+            lineStyle: {
+              color: '#9ca3af'
+            }
+          },
           axisLabel: {
             color: '#4b5563'
           },
@@ -129,25 +175,40 @@ export default {
         },
         series: [
           {
+            name: 'Samples',
+            type: 'scatter',
+            data: scatterData,
+            symbolSize: 4,
+            itemStyle: {
+              color: '#D96245',
+              opacity: 0.3
+            },
+            z: 2
+          },
+          {
             name: 'Expression distribution',
             type: 'boxplot',
             data: boxData,
             boxWidth: ['34%', '54%'],
             itemStyle: {
-              color: 'rgba(217, 98, 69, 0.16)',
+              color: 'rgba(217, 98, 69, 0.12)',
               borderColor: '#D96245',
-              borderWidth: 1.5
-            }
-          },
-          {
-            name: 'Samples',
-            type: 'scatter',
-            data: scatterData,
-            symbolSize: 5,
-            itemStyle: {
-              color: '#D96245',
-              opacity: 0.42
-            }
+              borderWidth: 1.4
+            },
+            markLine: {
+              silent: true,
+              symbol: 'none',
+              label: {
+                show: false
+              },
+              lineStyle: {
+                color: '#9ca3af',
+                width: 1,
+                type: 'dashed'
+              },
+              data: [{ yAxis: 0 }]
+            },
+            z: 4
           }
         ]
       }
